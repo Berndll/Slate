@@ -2,7 +2,7 @@ from assembler import assemble
 from schematic import make_schematic
 
 def main():
-    program = 'fibonacci'
+    program = 'collatz'
 
     as_filename = f'programs/{program}.as'
     mc_filename = f'programs/{program}.mc'

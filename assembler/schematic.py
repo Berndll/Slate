@@ -13,13 +13,14 @@ def make_schematic(mc_filename, schem_filename):
 
     x = 0
     z = 0
-    for line in hex_lines:
+    for line_count, line in enumerate(hex_lines):
         line.reverse()
+        print(line_count, end="\t| ")
         print(line)
         y = -1
-        if x >= 32:
-            z += 4
-            x = 0
+        # if line_count % 16 == 0 and line_count != 0:
+        #     z += 6
+            # x = 0
         for bit, ss in enumerate(line):
             if bit == 8:
                 z += 2
@@ -29,6 +30,7 @@ def make_schematic(mc_filename, schem_filename):
             else:
                 schem.setBlock( (x, y, z), mcschematic.BlockDataDB.BARREL.fromSS(ss) )
             y -= 2
+
         z -= 2
         x += 2
 
